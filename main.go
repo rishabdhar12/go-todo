@@ -17,6 +17,7 @@ func main() {
 	AddTodoFlag := flag.Bool("a", false, "Add Todo")
 	DeleteTodoFlag := flag.Bool("d", false, "Delete Todo")
 	UpdateTodoFlag := flag.Bool("u", false, "Update Todo")
+	ListTodoFlag := flag.Bool("l", false, "List Todo")
 
 	flag.Parse()
 
@@ -26,6 +27,8 @@ func main() {
 		operations.DeleteTodo()
 	} else if *UpdateTodoFlag {
 		operations.UpdateTodo()
+	} else if *ListTodoFlag {
+		operations.ListTodos()
 	} else if *HelpFlag {
 		fmt.Println("Help")
 	} else if *VersionFlag {

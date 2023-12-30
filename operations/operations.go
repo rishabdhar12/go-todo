@@ -8,6 +8,7 @@ import (
 
 	"github.com/lithammer/shortuuid"
 	"github.com/rishabdhar12/go-todo/models"
+	table "github.com/rishabdhar12/go-todo/tables"
 )
 
 func CreateNewTodo(list []models.TodoModel) []models.TodoModel {
@@ -47,6 +48,24 @@ func CreateNewTodo(list []models.TodoModel) []models.TodoModel {
 	return list
 }
 
+func ListTodos() {
+	file, err := os.ReadFile("todos.json")
+	if err == nil {
+
+		var list []models.TodoModel
+
+		err = json.Unmarshal(file, &list)
+		if err != nil {
+			panic(err)
+		}
+
+		table.PrintTable(list)
+	} else {
+		fmt.Println("No data found")
+	}
+
+}
+
 func UpdateTodo() {
 	scanner := bufio.NewScanner(os.Stdin)
 
@@ -76,7 +95,6 @@ func UpdateTodo() {
 	for i, item := range list {
 		if item.ID == iID {
 			list[i].Status = true
-			// list = append(list[:i], list[i+1:]...)
 			break
 		} else {
 			errString := fmt.Sprintf("ID doesn't exist : %s", err)
