@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 
 	"github.com/rishabdhar12/go-todo/models"
 	"github.com/rishabdhar12/go-todo/operations"
@@ -30,8 +29,8 @@ func main() {
 	} else if *ListTodoFlag {
 		operations.ListTodos()
 	} else if *HelpFlag {
-		fmt.Println("Help")
+		operations.PrintHelp()
 	} else if *VersionFlag {
-		fmt.Println("Version : 1.0")
+		operations.PrintVersion()
 	}
 }
