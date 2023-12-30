@@ -208,3 +208,19 @@ func WriteToFile(list []models.TodoModel, item models.TodoModel) {
 
 	}
 }
+
+func PrintHelp() {
+	fmt.Println("A simple CLI app to manage tyour todos")
+	fmt.Println("Usage: ./todo -[arguments]")
+	fmt.Println("Commands:")
+	fmt.Println("a\t\t\t\tAdd a new todo")
+	fmt.Println("d\t\t\t\tDelete a todo")
+	fmt.Println("u\t\t\t\tUpdate a todo")
+	fmt.Println("l\t\t\t\tList todos")
+	fmt.Println("h\t\t\t\tPrint help")
+	fmt.Println("v\t\t\t\tPrint version")
+}
+
+func PrintVersion() {
+	fmt.Println("Version 1.0.0")
+}
